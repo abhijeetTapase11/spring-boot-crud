@@ -4,12 +4,16 @@ import com.example.BasicJava.model.Student;
 import com.example.BasicJava.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
 
 @Service
 public class StudentService {
+
+    private static final Logger logger=LoggerFactory.getLogger(StudentService.class);
 
     @Autowired
     private StudentRepository studentRepository;
@@ -33,7 +37,7 @@ public class StudentService {
     }
     public void deleteStudent(String rollNo){
         Optional<Student> studentOpt=studentRepository.findByRollNo(rollNo);
-//        studentOpt.ifPresent(s->logger.info("Deleting student: {}",s));
+        studentOpt.ifPresent(s->logger.info("Deleting student: {}",s));
         studentOpt.ifPresent(studentRepository::delete);
     }
 }
