@@ -29,7 +29,7 @@ public class StudentController {
 
     @PutMapping("/{rollNo}/return-book")
     public Optional<Student> returnBook(@PathVariable String rollNo,@RequestParam String bookName){
-        return studentService.updateStudenBooks(rollNo,bookName);
+        return studentService.updateStudentBooks(rollNo,bookName);
     }
 
     @DeleteMapping("/{rollNo}")

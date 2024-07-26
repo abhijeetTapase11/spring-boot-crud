@@ -21,7 +21,9 @@ public class StudentService {
     public Student addStudent(Student student){
         return studentRepository.save(student);
     }
-    public Optional<Student> updateStudenBooks(String rollNo,String bookName){
+
+//    if a student returns any book
+    public Optional<Student> updateStudentBooks(String rollNo,String bookName){
         Optional<Student> studentOpt=studentRepository.findByRollNo(rollNo);
         studentOpt.ifPresent(student -> {
             student.getBooks().removeIf(book->book.getName().equals(bookName));
