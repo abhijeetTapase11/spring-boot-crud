@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 import java.util.List;
 
+//Schema to store student's data
 @Data
 @Document(collection = "students")
 public class Student {
@@ -14,7 +15,7 @@ public class Student {
     private String id;
     private String name;
     private String rollNo;
-    private List<Book> books;
+    private List<Book> books;//array of books
 
     @Data
     public static class Book{
